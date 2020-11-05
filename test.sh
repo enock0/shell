@@ -1,8 +1,11 @@
 quit=no
 nom=Zaka
-message="Salut $nom!"
+message=""
 while [ "$quit" != "yes" ]
 do
+	echo "Entrer votre pseudo="
+	read nom
+	message="Salut $nom!"
 	for i in 1 2 3
 	do
 		if [ $i -eq 1 ]
@@ -14,10 +17,15 @@ do
 			echo $message $i times
 		fi
 	done
-	echo Try again! Exit? [yes/no]
+	echo Exit? [yes/no]
 	read quit
 	if [ $quit = "yes" ]
 	then
 		exit 1;
+	elif [ $quit = "no" ]
+	then
+		echo Try again!
+	else
+		echo Error!
 	fi
 done
